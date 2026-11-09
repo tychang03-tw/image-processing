@@ -5,42 +5,6 @@
 - **影像處理**（`IP_HW*`）：以 MATLAB 為主，練習傳統數位影像處理方法，例如濾波、邊緣偵測、特徵擷取。
 - **生成式人工智慧**（`AI_HW*`）：以 PyTorch / TensorFlow 實作神經網路，主題從影像分類、Semantic Segmentation，一路到 Style Transfer、GAN 與 Diffusion Model。
 
-## 環境需求
-
-**Python**
-
-```bash
-pip install torch torchvision tensorflow tensorflow-hub opencv-python numpy matplotlib pillow ipython
-pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
-```
-
-**MATLAB**：需要 Image Processing Toolbox 與 Computer Vision Toolbox（`IP_HW5` 的 Harris、MSER 會用到）。
-
-## 執行方式
-
-程式都是用相對路徑讀寫檔案，**請在各作業資料夾內執行**：
-
-- 用 VS Code 開啟整個 repo，直接按 F5 或右上角 ▶ 執行即可。`.vscode/` 已設定成會自動切換到程式所在的資料夾。
-- 在終端機執行時，請先 `cd` 進作業資料夾，例如：
-
-  ```bash
-  cd AI_HW2
-  python unet.py
-  ```
-
-- MATLAB 請將目前資料夾設為 repo 根目錄，再執行 `IP_HW*.m`。
-
-### 需要另外下載或產生的檔案
-
-以下檔案太大、可自動下載或可自行訓練，所以沒有放進 repo：
-
-| 檔案 | 怎麼取得 |
-|---|---|
-| `AI_HW2/datasets/` | 第一次執行 `AI_HW2` 任一程式時會自動下載 Oxford-IIIT Pet（train、test 各一份，共約 1.6 GB） |
-| `AI_HW2/*.pth` | 先執行訓練程式（例如 `unet.py`）產生，再執行對應的 `*_test.py` |
-| `AI_HW5/glide_model_cache/` | 第一次執行 `ai_hw5.py` 時自動下載 GLIDE 模型（約 3 GB） |
-| AI_HW3、AI_HW4 的模型 | 執行時自動從 TF Hub / PyTorch Hub 下載 |
-
 ## 生成式人工智慧（AI_HW）
 
 ### AI_HW1：神經網路基礎與衛星影像分類
@@ -137,3 +101,43 @@ Prompt：`A oil painting of a fluffy orange cat`
 | [`IP_HW4.m`](IP_HW4.m) | Canny 邊緣偵測；Hough Transform 直線偵測；Otsu 二值化；K-means 分割 |
 | [`IP_HW5.m`](IP_HW5.m) | Active Contour；Harris Corner；MSER 特徵區域 |
 | [`IP_HW6.py`](IP_HW6.py) | 簡單神經網路做二維分類，畫出 Decision Boundary 與 3D 機率曲面 |
+
+## 環境需求
+
+**Python**
+
+```bash
+pip install torch torchvision tensorflow tensorflow-hub opencv-python numpy matplotlib pillow ipython
+pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
+```
+
+**MATLAB**：需要 Image Processing Toolbox 與 Computer Vision Toolbox（`IP_HW5` 的 Harris、MSER 會用到）。
+
+## 執行方式
+
+程式都是用相對路徑讀寫檔案，**請在各作業資料夾內執行**：
+
+- 用 VS Code 開啟整個 repo，直接按 F5 或右上角 ▶ 執行即可。`.vscode/` 已設定成會自動切換到程式所在的資料夾。
+- 在終端機執行時，請先 `cd` 進作業資料夾，例如：
+
+  ```bash
+  cd AI_HW2
+  python unet.py
+  ```
+
+- MATLAB 請將目前資料夾設為 repo 根目錄，再執行 `IP_HW*.m`。
+
+### 需要另外下載或產生的檔案
+
+以下檔案太大、可自動下載或可自行訓練，所以沒有放進 repo：
+
+| 檔案 | 怎麼取得 |
+|---|---|
+| `AI_HW2/datasets/` | 第一次執行 `AI_HW2` 任一程式時會自動下載 Oxford-IIIT Pet（train、test 各一份，共約 1.6 GB） |
+| `AI_HW2/*.pth` | 先執行訓練程式（例如 `unet.py`）產生，再執行對應的 `*_test.py` |
+| `AI_HW5/glide_model_cache/` | 第一次執行 `ai_hw5.py` 時自動下載 GLIDE 模型（約 3 GB） |
+| AI_HW3、AI_HW4 的模型 | 執行時自動從 TF Hub / PyTorch Hub 下載 |
+
+## 作者
+
+- 張茲逸｜中興大學 電機工程研究所
