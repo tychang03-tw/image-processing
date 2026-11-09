@@ -1,23 +1,9 @@
-# Image Processing & Generative AI Homework
+# Image Processing & Generative AI Practice
 
-影像處理與生成式人工智慧兩門課的作業程式碼。
+影像處理與生成式人工智慧兩門課程的程式碼練習。
 
 - **影像處理**（`IP_HW*`）：以 MATLAB 為主，練習傳統數位影像處理方法，例如濾波、邊緣偵測、特徵擷取。
 - **生成式人工智慧**（`AI_HW*`）：以 PyTorch / TensorFlow 實作神經網路，主題從影像分類、Semantic Segmentation，一路到 Style Transfer、GAN 與 Diffusion Model。
-
-## 目錄結構
-
-```
-image-processing/
-├─ AI_HW1/      神經網路基礎與多光譜衛星影像分類
-├─ AI_HW2/      Oxford-IIIT Pet 影像分割（U-Net、SegNet）
-├─ AI_HW3/      Arbitrary Style Transfer
-├─ AI_HW4/      StyleGAN latent vector 實驗
-├─ AI_HW5/      GLIDE 文字生成圖片
-├─ IP_HW1~5.m   影像處理作業（MATLAB）
-├─ IP_HW6.py    影像處理作業（PyTorch）
-└─ F16.tiff     影像處理作業共用的測試圖
-```
 
 ## 環境需求
 
@@ -61,9 +47,9 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 | 程式 | 內容 |
 |---|---|
-| `ai_hw1_1.py` | 4 層全連接神經網路，以 Cross Entropy Loss 解 XOR 分類問題，並畫出機率曲面與 loss 曲線 |
-| `ai_hw1_2.py` | 用 R、G、B、近紅外線 4 個波段的像素值，將衛星影像分成水域、都市、植被三類 |
-| `example*.py` | 課程提供的範例；`example2data.py` 會由 `example2/` 的影像產生訓練資料 `example2data.npy` |
+| [`ai_hw1_1.py`](AI_HW1/ai_hw1_1.py) | 4 層全連接神經網路，以 Cross Entropy Loss 解 XOR 分類問題，並畫出機率曲面與 loss 曲線 |
+| [`ai_hw1_2.py`](AI_HW1/ai_hw1_2.py) | 用 R、G、B、近紅外線 4 個波段的像素值，將衛星影像分成水域、都市、植被三類 |
+| [`example1tensorflow.py`](AI_HW1/example1tensorflow.py)、[`example2data.py`](AI_HW1/example2data.py)、[`example2pytorch.py`](AI_HW1/example2pytorch.py) | 課程提供的範例；`example2data.py` 會由 `example2/` 的影像產生訓練資料 `example2data.npy` |
 
 <table>
   <tr>
@@ -83,11 +69,11 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 | 程式 | 模型 |
 |---|---|
-| `unet.py` | 3 層 U-Net |
-| `unet5.py` | 4 層 U-Net（較深） |
-| `ai_hw2_1.py` | 2 層 U-Net，第二個卷積改為 Grouped Convolution |
-| `ai_hw2_2.py` | 2 層 U-Net |
-| `segnet.py` | SegNet（以 MaxUnpool 還原解析度） |
+| [`unet.py`](AI_HW2/unet.py) | 3 層 U-Net |
+| [`unet5.py`](AI_HW2/unet5.py) | 4 層 U-Net（較深） |
+| [`ai_hw2_1.py`](AI_HW2/ai_hw2_1.py) | 2 層 U-Net，第二個卷積改為 Grouped Convolution |
+| [`ai_hw2_2.py`](AI_HW2/ai_hw2_2.py) | 2 層 U-Net |
+| [`segnet.py`](AI_HW2/segnet.py) | SegNet（以 MaxUnpool 還原解析度） |
 
 每個訓練程式都有對應的 `*_test.py`，會在測試集上顯示原圖、Ground Truth 與預測結果。
 
@@ -105,11 +91,15 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 使用 TF Hub 上 Magenta 的 Arbitrary Image Stylization 模型，將 F16 戰鬥機照片轉換成 6 種名畫風格。
 
+程式：[`ai_hw3.py`](AI_HW3/ai_hw3.py)
+
 <img src="AI_HW3/style_transfer_final.png" width="800">
 
 ### AI_HW4：StyleGAN Latent Vector 實驗
 
 用預訓練的 StyleGAN 生成 16 張人臉。這 16 組 512 維 latent vector 的前 128 個或前 384 個元素設為相同，觀察固定越多元素時，生成的人臉會有多相似。
+
+程式：[`ai_hw4.py`](AI_HW4/ai_hw4.py)（課程範例：[`hw4sample.py`](AI_HW4/hw4sample.py)）
 
 <table>
   <tr>
@@ -125,6 +115,8 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 使用 OpenAI 的 GLIDE Diffusion Model：先由 base model 生成 64×64 的圖，再用 upsampler 放大到 256×256。
 
+程式：[`ai_hw5.py`](AI_HW5/ai_hw5.py)
+
 Prompt：`A oil painting of a fluffy orange cat`
 
 <img src="AI_HW5/output.png" width="256">
@@ -135,9 +127,9 @@ Prompt：`A oil painting of a fluffy orange cat`
 
 | 作業 | 內容 |
 |---|---|
-| `IP_HW1.m` | 灰階直方圖；影像縮放與旋轉（Nearest vs. Bicubic Interpolation） |
-| `IP_HW2.m` | Histogram Matching；Laplacian Filter；去雜訊（Wiener、Bilateral、Non-Local Means、Median Filter） |
-| `IP_HW3.m` | DCT 保留低頻後重建影像；依灰階範圍上色（Pseudo-color） |
-| `IP_HW4.m` | Canny 邊緣偵測；Hough Transform 直線偵測；Otsu 二值化；K-means 分割 |
-| `IP_HW5.m` | Active Contour；Harris Corner；MSER 特徵區域 |
-| `IP_HW6.py` | 簡單神經網路做二維分類，畫出 Decision Boundary 與 3D 機率曲面 |
+| [`IP_HW1.m`](IP_HW1.m) | 灰階直方圖；影像縮放與旋轉（Nearest vs. Bicubic Interpolation） |
+| [`IP_HW2.m`](IP_HW2.m) | Histogram Matching；Laplacian Filter；去雜訊（Wiener、Bilateral、Non-Local Means、Median Filter） |
+| [`IP_HW3.m`](IP_HW3.m) | DCT 保留低頻後重建影像；依灰階範圍上色（color-coded） |
+| [`IP_HW4.m`](IP_HW4.m) | Canny 邊緣偵測；Hough Transform 直線偵測；Otsu 二值化；K-means 分割 |
+| [`IP_HW5.m`](IP_HW5.m) | Active Contour；Harris Corner；MSER 特徵區域 |
+| [`IP_HW6.py`](IP_HW6.py) | 簡單神經網路做二維分類，畫出 Decision Boundary 與 3D 機率曲面 |
