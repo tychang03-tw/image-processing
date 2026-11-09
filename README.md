@@ -51,15 +51,15 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 | [`ai_hw1_2.py`](AI_HW1/ai_hw1_2.py) | 用 R、G、B、近紅外線 4 個波段的像素值，將衛星影像分成水域、都市、植被三類 |
 | [`example1tensorflow.py`](AI_HW1/example1tensorflow.py)、[`example2data.py`](AI_HW1/example2data.py)、[`example2pytorch.py`](AI_HW1/example2pytorch.py) | 課程提供的範例；`example2data.py` 會由 `example2/` 的影像產生訓練資料 `example2data.npy` |
 
-<table>
+<table align="center">
   <tr>
     <th>原始影像</th><th>水域</th><th>都市</th><th>植被</th>
   </tr>
   <tr>
-    <td><img src="AI_HW1/color.png" width="200"></td>
-    <td><img src="AI_HW1/water.png" width="200"></td>
-    <td><img src="AI_HW1/urban.png" width="200"></td>
-    <td><img src="AI_HW1/veg.png" width="200"></td>
+    <td><img src="AI_HW1/color.png" width="170"></td>
+    <td><img src="AI_HW1/water.png" width="170"></td>
+    <td><img src="AI_HW1/urban.png" width="170"></td>
+    <td><img src="AI_HW1/veg.png" width="170"></td>
   </tr>
 </table>
 
@@ -77,13 +77,13 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 每個訓練程式都有對應的 `*_test.py`，會在測試集上顯示原圖、Ground Truth 與預測結果。
 
-<table>
+<table align="center">
   <tr>
     <th>2 層 U-Net + Grouped Convolution</th><th>2 層 U-Net</th>
   </tr>
   <tr>
-    <td><img src="AI_HW2/2_1.png" width="400"></td>
-    <td><img src="AI_HW2/2_2.png" width="400"></td>
+    <td><img src="AI_HW2/2_1.png" width="340"></td>
+    <td><img src="AI_HW2/2_2.png" width="340"></td>
   </tr>
 </table>
 
@@ -93,7 +93,9 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 程式：[`ai_hw3.py`](AI_HW3/ai_hw3.py)
 
-<img src="AI_HW3/style_transfer_final.png" width="800">
+<p align="center">
+  <img src="AI_HW3/style_transfer_final.png" width="680">
+</p>
 
 ### AI_HW4：StyleGAN Latent Vector 實驗
 
@@ -101,13 +103,13 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 程式：[`ai_hw4.py`](AI_HW4/ai_hw4.py)（課程範例：[`hw4sample.py`](AI_HW4/hw4sample.py)）
 
-<table>
+<table align="center">
   <tr>
     <th>固定前 128 個元素</th><th>固定前 384 個元素</th>
   </tr>
   <tr>
-    <td><img src="AI_HW4/fixed_128_elements.png" width="400"></td>
-    <td><img src="AI_HW4/fixed_384_elements.png" width="400"></td>
+    <td><img src="AI_HW4/fixed_128_elements.png" width="340"></td>
+    <td><img src="AI_HW4/fixed_384_elements.png" width="340"></td>
   </tr>
 </table>
 
@@ -119,7 +121,9 @@ pip install git+https://github.com/openai/glide-text2im   # AI_HW5 用
 
 Prompt：`A oil painting of a fluffy orange cat`
 
-<img src="AI_HW5/output.png" width="256">
+<p align="center">
+  <img src="AI_HW5/output.png" width="256">
+</p>
 
 ## 影像處理（IP_HW）
 
