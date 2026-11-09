@@ -1,0 +1,14 @@
+# 可自動下載的資料集與模型
+AI_HW2/datasets/
+AI_HW5/glide_model_cache/
+
+# 可自行訓練產生的模型權重
+*.pth
+
+# Python
+__pycache__/
+*.pyc
+
+# 系統檔
+.DS_Store
+Thumbs.db
