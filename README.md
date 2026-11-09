@@ -1,4 +1,4 @@
-# Image Processing & Generative AI Practice
+# 影像處理與生成式 AI 實作
 
 影像處理與生成式人工智慧兩門課程的程式碼練習。
 
